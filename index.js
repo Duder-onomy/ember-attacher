@@ -3,7 +3,6 @@
 
 const FilterImports = require('babel-plugin-filter-imports');
 const Funnel = require('broccoli-funnel');
-const RemoveImports = require('./lib/babel-plugin-remove-imports');
 const StripClassCallCheck = require('babel6-plugin-strip-class-callcheck');
 
 module.exports = {
@@ -40,8 +39,10 @@ module.exports = {
           'stripInProduction'
         ]
       };
-      babelOptions.plugins.push([FilterImports, strippedImports]);
-      babelOptions.plugins.push([RemoveImports, 'ember-attacher/-debug/helpers']);
+      babelOptions.plugins.push([FilterImports, {
+        imports: strippedImports,
+        keepImports: false
+      }]);
       babelOptions.postTransformPlugins.push(StripClassCallCheck);
     }
 
