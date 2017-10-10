@@ -18,6 +18,8 @@ export default Component.extend({
   init() {
     this._super(...arguments);
 
+    this.set('_shouldRenderYieldBlock', !this.get('lazyRender'));
+
     // Holds the current popper target so event listeners can be removed if the target changes
     this._currentTarget = null;
 
@@ -223,6 +225,8 @@ export default Component.extend({
     if (!this._currentTarget) {
       return;
     }
+
+    this.set('_shouldRenderYieldBlock', true);
 
     // Make the attachment visible immediately so transition animations can take place
     this._setIsVisibleAfterDelay(true, 0);

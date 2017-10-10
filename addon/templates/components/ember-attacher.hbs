@@ -7,7 +7,7 @@
                 placement=placement
                 popperContainer=popperContainer
                 renderInPlace=renderInPlace
-                target=target as |emberPopper|}}
+                target=target as |emberPopper|}}                      
   {{#ember-attacher-inner animation=animation
                           arrow=arrow
                           class="inner"
@@ -24,6 +24,7 @@
                           showDelay=showDelay
                           showDuration=showDuration
                           showOn=showOn
+                          lazyRender=lazyRender
                           target=_target as |inner|}}
     {{yield (hash emberPopper=emberPopper
                   hide=inner.hide)}}

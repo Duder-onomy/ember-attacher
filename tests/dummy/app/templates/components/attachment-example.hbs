@@ -40,6 +40,7 @@
                       showDelay=popoverData.showDelay
                       showDuration=popoverData.showDuration
                       showOn=popoverData.showOn
+                      lazyRender=popoverData.lazyRender
                       target=popoverData.target as |emberAttacher|}}
       <p>Popovers and tooltips, oh my!</p>
 
@@ -304,6 +305,22 @@
                           {{/power-select}}"
       </centered>
     </hbox>
+    {{#unless isConfiguringTooltip}}
+      <hbox>
+        &nbsp;&nbsp;&nbsp;&nbsp;<box xs="hidden" lm="visible fit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</box>
+        <centered fit>
+          <span class="underlined">
+            lazyRender
+
+            {{#attach-tooltip}}
+              If you want ember-attacher to postpone rendering until first interacted.
+            {{/attach-tooltip}}
+          </span>
+          =
+          <button class="button medium" {{action "toggleLazyRender"}}>{{service.lazyRender}}</button>
+        </centered>
+      </hbox>
+    {{/unless}}
     <hbox>
       &nbsp;&nbsp;&nbsp;&nbsp;<box xs="hidden" lm="visible fit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</box>
       <centered fit>

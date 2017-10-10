@@ -13,5 +13,6 @@ export default Service.extend({
   showDelay: 0,
   showDuration: 300,
   showOn: 'click',
-  target: '.target-plz'
+  target: '.target-plz',
+  lazyRender: false
 });

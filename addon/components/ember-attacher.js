@@ -52,6 +52,7 @@ export default Component.extend({
   showDuration: DEFAULTS.showDuration,
   showOn: DEFAULTS.showOn,
   target: null,
+  lazyRender: DEFAULTS.lazyRender,
 
   /**
    * ================== PRIVATE IMPLEMENTATION DETAILS ==================
